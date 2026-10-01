@@ -1,0 +1,827 @@
+      :root {
+        --primary-color: #111111;
+        --secondary-color: #666666;
+        --accent-color: #c5a059; /* Dourado suave/Elegante */
+        --bg-light: #f9f9f9;
+        --border-color: #e5e5e5;
+        --font-heading: 'Playfair Display', Georgia, serif;
+        --font-body: 'Montserrat', sans-serif;
+        --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+
+      body {
+        font-family: var(--font-body);
+        color: var(--primary-color);
+        background-color: #ffffff;
+        overflow-x: hidden;
+      }
+
+      h1, h2, h3, h4, .brand-title {
+        font-family: var(--font-heading);
+      }
+
+      /* ==========================================================================
+         Cabeçalho & Topo
+         ========================================================================== */
+      .top-bar {
+        background-color: var(--primary-color);
+        color: #ffffff;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 6px 0;
+      }
+
+      .topo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--primary-color);
+        margin: 0;
+      }
+
+      /* ==========================================================================
+         Navegação
+         ========================================================================== */
+      .custom-navbar {
+        background-color: #ffffff !important;
+        border-top: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--border-color);
+        padding: 0.8rem 1rem;
+        transition: var(--transition-smooth);
+      }
+
+      .custom-navbar .nav-link {
+        color: var(--primary-color) !important;
+        font-weight: 500;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 0.5rem 1rem !important;
+        position: relative;
+        transition: var(--transition-smooth);
+      }
+
+      .custom-navbar .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 50%;
+        background-color: var(--accent-color);
+        transition: var(--transition-smooth);
+        transform: translateX(-50%);
+      }
+
+      .custom-navbar .nav-link:hover::after,
+      .custom-navbar .nav-link.active::after {
+        width: 60%;
+      }
+
+      /* Form de Pesquisa Customizado */
+      .search-box {
+        position: relative;
+        max-width: 260px;
+        width: 100%;
+      }
+
+      .search-box .form-control {
+        border-radius: 20px;
+        padding-left: 1rem;
+        padding-right: 2.5rem;
+        font-size: 0.85rem;
+        border: 1px solid var(--border-color);
+      }
+
+      .search-box .form-control:focus {
+        border-color: var(--primary-color);
+        box-shadow: none;
+      }
+
+      .search-box .btn-search {
+        position: absolute;
+        right: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        background: transparent;
+        color: var(--primary-color);
+        padding: 0 8px;
+      }
+
+      /* ==========================================================================
+         Banner Principal (Hero Section)
+         ========================================================================== */
+      .hero-banner {
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+        height: 70vh;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        text-align: center;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .btn-custom {
+        background-color: #ffffff;
+        color: var(--primary-color);
+        border-radius: 0;
+        padding: 12px 30px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border: 1px solid #ffffff;
+        transition: var(--transition-smooth);
+      }
+
+      .btn-custom:hover {
+        background-color: var(--primary-color);
+        color: #ffffff;
+        border-color: var(--primary-color);
+      }
+
+      /* ==========================================================================
+         Grade de Produtos & Cards
+         ========================================================================== */
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+        letter-spacing: 1px;
+        display: inline-block;
+        background: #fff;
+        padding: 0 15px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .section-title::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background: var(--border-color);
+        top: 50%;
+        left: 0;
+        z-index: 0;
+      }
+
+      .product-card {
+        border: none;
+        background: transparent;
+        transition: var(--transition-smooth);
+        margin-bottom: 2rem;
+      }
+
+      .product-img-wrapper {
+        position: relative;
+        overflow: hidden;
+        border-radius: 4px;
+        background-color: #f5f5f5;
+        aspect-ratio: 3 / 4;
+      }
+
+      .product-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      .product-card:hover .product-img-wrapper img {
+        transform: scale(1.05);
+      }
+
+      .badge-tag {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background-color: var(--primary-color);
+        color: #ffffff;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        padding: 4px 8px;
+        letter-spacing: 1px;
+      }
+
+      .product-details {
+        padding-top: 1rem;
+        text-align: center;
+      }
+
+      .product-title {
+        font-size: 0.95rem;
+        font-weight: 500;
+        margin-bottom: 0.4rem;
+      }
+
+      .product-price {
+        font-size: 0.9rem;
+        color: var(--secondary-color);
+        font-weight: 600;
+      }
+
+      /* ==========================================================================
+         Rodapé
+         ========================================================================== */
+      footer {
+        background-color: var(--bg-light);
+        border-top: 1px solid var(--border-color);
+        padding: 4rem 0 2rem;
+        font-size: 0.85rem;
+        color: var(--secondary-color);
+      }
+
+      footer h5 {
+        color: var(--primary-color);
+        font-size: 1rem;
+        margin-bottom: 1.2rem;
+        letter-spacing: 1px;
+      }
+
+      footer ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      footer ul li {
+        margin-bottom: 0.6rem;
+      }
+
+      footer a {
+        color: var(--secondary-color);
+        text-decoration: none;
+        transition: var(--transition-smooth);
+      }
+
+      footer a:hover {
+        color: var(--primary-color);
+      }
+
+      /* ==========================================================================
+         Ajustes Responsivos (Media Queries)
+         ========================================================================== */
+      @media (max-width: 991.98px) {
+        .topo {
+          font-size: 2rem;
+        }
+
+        .hero-title {
+          font-size: 2.4rem;
+        }
+
+        .search-box {
+          max-width: 100%;
+          margin-top: 1rem;
+        }
+
+        .custom-navbar .nav-link::after {
+          display: none;
+        }
+
+        .custom-navbar .nav-link {
+          padding: 0.6rem 0 !important;
+          border-bottom: 1px solid var(--border-color);
+        }
+      }
+
+      @media (max-width: 575.98px) {
+        .hero-banner {
+          height: 50vh;
+        }
+
+        .hero-title {
+          font-size: 1.8rem;
+        }
+
+        .btn-custom {
+          padding: 10px 20px;
+          font-size: 0.75rem;
+        }
+      }
+
+          :root {
+      --primary-color: #111111;
+      --secondary-color: #666666;
+      --accent-color: #c5a059;   /* Dourado elegante */
+      --bg-light: #f9f9f9;
+      --border-color: #e5e5e5;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Montserrat', sans-serif;
+      --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--primary-color);
+      background-color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    .topo {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary-color);
+      margin: 0;
+    }
+
+    /* ==========================================================================
+       2. Container da Navbar (Barra Principal)
+       ========================================================================== */
+    .custom-navbar {
+      background-color: #ffffff !important;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.8rem 1rem;
+      transition: var(--transition-smooth);
+      z-index: 1030;
+    }
+
+    /* Brand/Logo visível apenas no Mobile */
+    .custom-navbar .navbar-brand {
+      font-family: var(--font-heading);
+      letter-spacing: 1.5px;
+      color: var(--primary-color);
+    }
+
+    /* Botão Toggler (Hambúrguer Mobile) */
+    .custom-navbar .navbar-toggler:focus {
+      box-shadow: none;
+    }
+
+    /* ==========================================================================
+       3. Links Principais de Navegação (.nav-link)
+       ========================================================================== */
+    .custom-navbar .nav-link {
+      color: var(--primary-color) !important;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      padding: 0.5rem 1.2rem !important;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+
+    /* Animação da Linha Dourada ao passar o mouse */
+    .custom-navbar .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background-color: var(--accent-color);
+      transition: var(--transition-smooth);
+      transform: translateX(-50%);
+    }
+
+    .custom-navbar .nav-link:hover::after,
+    .custom-navbar .nav-link.active::after {
+      width: 50%;
+    }
+
+    /* ==========================================================================
+       4. Menu Sub-Categorias (Dropdown)
+       ========================================================================== */
+    /* Container da Lista Suspensa */
+    .custom-navbar .dropdown-menu {
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 0; /* Design clean/quadrado */
+      padding: 0.6rem 0;
+      margin-top: 0.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+      animation: navbarFadeIn 0.25s ease-in-out;
+    }
+
+    /* Itens individuais do Dropdown */
+    .custom-navbar .dropdown-item {
+      color: var(--primary-color);
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      padding: 0.6rem 1.5rem;
+      transition: var(--transition-smooth);
+    }
+
+    /* Hover nos itens das categorias */
+    .custom-navbar .dropdown-item:hover,
+    .custom-navbar .dropdown-item:focus {
+      background-color: var(--bg-light);
+      color: var(--accent-color);
+      padding-left: 1.8rem; /* Deslize suave à direita */
+    }
+
+    /* Seta indicadora do Dropdown */
+    .custom-navbar .dropdown-toggle::after {
+      margin-left: 0.4em;
+      vertical-align: 0.15em;
+      transition: var(--transition-smooth);
+    }
+
+    /* Animação suave para exibição do Dropdown */
+    @keyframes navbarFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ==========================================================================
+       5. Campo de Busca (Search Box)
+       ========================================================================== */
+    .search-box {
+      position: relative;
+      max-width: 250px;
+      width: 100%;
+    }
+
+    .search-box .form-control {
+      border-radius: 20px;
+      padding-left: 1rem;
+      padding-right: 2.5rem;
+      font-size: 0.82rem;
+      border: 1px solid var(--border-color);
+      background-color: #ffffff;
+      transition: var(--transition-smooth);
+    }
+
+    .search-box .form-control:focus {
+      border-color: var(--primary-color);
+      box-shadow: none;
+      background-color: #ffffff;
+    }
+
+    .search-box .btn-search {
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: transparent;
+      color: var(--primary-color);
+      padding: 0 8px;
+      transition: var(--transition-smooth);
+    }
+
+    .search-box .btn-search:hover {
+      color: var(--accent-color);
+    }
+
+    /* ==========================================================================
+       6. Responsividade (Telas Menores / Mobile)
+       ========================================================================== */
+    @media (max-width: 991.98px) {
+      .search-box {
+        max-width: 100%;
+        margin-top: 1rem;
+      }
+
+      /* Remove o traço dourado inferior no mobile */
+      .custom-navbar .nav-link::after {
+        display: none;
+      }
+
+      .custom-navbar .nav-link {
+        padding: 0.7rem 0 !important;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .custom-navbar .dropdown-menu {
+        border: none;
+        box-shadow: none !important;
+        padding-left: 1rem;
+        background-color: var(--bg-light);
+      }
+    }
+
+/* css conjunto */
+
+
+     :root {
+      --primary-color: #111111;
+      --secondary-color: #666666;
+      --accent-color: #c5a059;   /* Dourado elegante */
+      --bg-light: #f9f9f9;
+      --border-color: #e5e5e5;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Montserrat', sans-serif;
+      --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--primary-color);
+      background-color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    .topo {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary-color);
+      margin: 0;
+    }
+
+    /* ==========================================================================
+       2. Container da Navbar (Barra Principal)
+       ========================================================================== */
+    .custom-navbar {
+      background-color: #ffffff !important;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.8rem 1rem;
+      transition: var(--transition-smooth);
+      z-index: 1030;
+    }
+
+    /* Brand/Logo visível apenas no Mobile */
+    .custom-navbar .navbar-brand {
+      font-family: var(--font-heading);
+      letter-spacing: 1.5px;
+      color: var(--primary-color);
+    }
+
+    /* Botão Toggler (Hambúrguer Mobile) */
+    .custom-navbar .navbar-toggler:focus {
+      box-shadow: none;
+    }
+
+    /* ==========================================================================
+       3. Links Principais de Navegação (.nav-link)
+       ========================================================================== */
+    .custom-navbar .nav-link {
+      color: var(--primary-color) !important;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      padding: 0.5rem 1.2rem !important;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+
+    /* Animação da Linha Dourada ao passar o mouse */
+    .custom-navbar .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background-color: var(--accent-color);
+      transition: var(--transition-smooth);
+      transform: translateX(-50%);
+    }
+
+    .custom-navbar .nav-link:hover::after,
+    .custom-navbar .nav-link.active::after {
+      width: 50%;
+    }
+
+    /* ==========================================================================
+       4. Menu Sub-Categorias (Dropdown)
+       ========================================================================== */
+    /* Container da Lista Suspensa */
+    .custom-navbar .dropdown-menu {
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 0; /* Design clean/quadrado */
+      padding: 0.6rem 0;
+      margin-top: 0.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+      animation: navbarFadeIn 0.25s ease-in-out;
+    }
+
+    /* Itens individuais do Dropdown */
+    .custom-navbar .dropdown-item {
+      color: var(--primary-color);
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      padding: 0.6rem 1.5rem;
+      transition: var(--transition-smooth);
+    }
+
+    /* Hover nos itens das categorias */
+    .custom-navbar .dropdown-item:hover,
+    .custom-navbar .dropdown-item:focus {
+      background-color: var(--bg-light);
+      color: var(--accent-color);
+      padding-left: 1.8rem; /* Deslize suave à direita */
+    }
+
+    /* Seta indicadora do Dropdown */
+    .custom-navbar .dropdown-toggle::after {
+      margin-left: 0.4em;
+      vertical-align: 0.15em;
+      transition: var(--transition-smooth);
+    }
+
+    /* Animação suave para exibição do Dropdown */
+    @keyframes navbarFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ==========================================================================
+       5. Campo de Busca (Search Box)
+       ========================================================================== */
+    .search-box {
+      position: relative;
+      max-width: 250px;
+      width: 100%;
+    }
+
+    .search-box .form-control {
+      border-radius: 20px;
+      padding-left: 1rem;
+      padding-right: 2.5rem;
+      font-size: 0.82rem;
+      border: 1px solid var(--border-color);
+      background-color: #ffffff;
+      transition: var(--transition-smooth);
+    }
+
+    .search-box .form-control:focus {
+      border-color: var(--primary-color);
+      box-shadow: none;
+      background-color: #ffffff;
+    }
+
+    .search-box .btn-search {
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: transparent;
+      color: var(--primary-color);
+      padding: 0 8px;
+      transition: var(--transition-smooth);
+    }
+
+    .search-box .btn-search:hover {
+      color: var(--accent-color);
+    }
+
+    /* ==========================================================================
+       6. Responsividade (Telas Menores / Mobile)
+       ========================================================================== */
+    @media (max-width: 991.98px) {
+      .search-box {
+        max-width: 100%;
+        margin-top: 1rem;
+      }
+
+      /* Remove o traço dourado inferior no mobile */
+      .custom-navbar .nav-link::after {
+        display: none;
+      }
+
+      .custom-navbar .nav-link {
+        padding: 0.7rem 0 !important;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .custom-navbar .dropdown-menu {
+        border: none;
+        box-shadow: none !important;
+        padding-left: 1rem;
+        background-color: var(--bg-light);
+      }
+    }
+   /* Estilização do container dos cards */
+/* Container Flexbox Responsivo */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 1rem;
+}
+
+/* Estilo do Card */
+.card {
+  flex: 1 1 18rem;
+  max-width: 22rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Envolvente da Imagem para manter o aspecto profissional */
+.card-img-wrapper {
+  width: 100%;
+  height: 260px; /* Altura ideal para fotos de vestuário */
+  overflow: hidden;
+  background-color: #f8fafc;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Recorta suavemente sem esticar a foto */
+  object-position: top center; /* Foca no topo da peça de roupa */
+}
+
+/* Conteúdo e Texto */
+.card-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+/* Destaque do Preço */
+.card-price {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+/* Botão de Ação */
+.btn-primary {
+  display: inline-block;
+  text-align: center;
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
